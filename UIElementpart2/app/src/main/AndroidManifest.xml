@@ -11,7 +11,6 @@
         android:theme="@style/Theme.UIElementpart2">
         <activity android:name=".AlbumItemActivity"></activity>
         <activity android:name=".QueueActivity" />
-        <activity android:name=".AlbumActivity" />
         <activity android:name=".AlbumDetailsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

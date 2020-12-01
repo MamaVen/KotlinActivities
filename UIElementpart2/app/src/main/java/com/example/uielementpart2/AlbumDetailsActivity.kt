@@ -18,28 +18,28 @@ class AlbumDetailsActivity : AppCompatActivity() {
         var viewImage = findViewById<ImageView>(R.id.icon_details)
         var viewText = findViewById<TextView>(R.id.icon_name)
 
-        if(albumItems.icons == R.drawable.blackpink___savage) {
+        if(albumItems.icons == R.drawable.blackpink___lovesick_girls) {
             viewImage.setImageResource(albumItems.icons!!)
 
-            val songsQueueArray = arrayOf("Savage", "How you like that", "Lovesick Girls", "Ddu Ddu", "Kill this love")
+            val songsQueueArray = arrayOf("How you like that", "lovesick girls", "Savage")
             val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, songsQueueArray)
             val albumSongs = findViewById<ListView>(R.id.album_songs)
             albumSongs.adapter = adapter
         }
         else if(albumItems.icons == R.drawable.blackpink___how_you_like_that){
             viewImage.setImageResource(albumItems.icons!!)
-            viewText.text = "How you like that"
+            viewText.text = "how you like that"
 
-            val songsQueueArray = arrayOf("Icecream", "As if its your last", "Kick It", "Playing with fire", "Stay")
+            val songsQueueArray = arrayOf("Stay", "Ice cream", "Forever Young")
             val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, songsQueueArray)
             val albumSongs = findViewById<ListView>(R.id.album_songs)
             albumSongs.adapter = adapter
         }
-        else if(albumItems.icons == R.drawable.blackpink___lovesick_girls){
+        else if(albumItems.icons == R.drawable.blackpink___savage){
             viewImage.setImageResource(albumItems.icons!!)
-            viewText.text = "Lovesick Girls"
+            viewText.text = "Savage"
 
-            val songsQueueArray = arrayOf("Forever young", "Kiss and Makeup","Dont know what to do", "Can't feel my face", "As you are")
+            val songsQueueArray = arrayOf("Dark Times", "Shameless", "Real Life", "Can't feel my face", "As you are")
             val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, songsQueueArray)
             val albumSongs = findViewById<ListView>(R.id.album_songs)
             albumSongs.adapter = adapter

@@ -17,7 +17,7 @@ import com.example.uielementpart2.R
 class AlbumActivity : AppCompatActivity() {
 
     private var arrayList = ArrayList<AlbumItem>()
-    var images = intArrayOf(R.drawable.blackpink___savage, R.drawable.blackpink___how_you_like_that, R.drawable.blackpink___lovesick_girls)
+    var images = intArrayOf(R.drawable.blackpink___how_you_like_that, R.drawable.blackpink___lovesick_girls, R.drawable.blackpink___savage)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,5 @@
 package com.example.uielements2
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.ContextMenu
@@ -16,27 +17,33 @@ import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     lateinit var songsQueueArray: Array<String>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         songsQueueArray = arrayOf("House of Balloons/Glass table girls", "High for this", "What you need", "Loft Music", "The Morning",
-                "After Hours", "Blinding Lights", "Snowchild", "Alone again", "Too Late", "Dark Times", "Shameless", "Real Life", "Can't feel my face", "As you are")
+            "After Hours", "Blinding Lights", "Snowchild", "Alone again", "Too Late", "Dark Times", "Shameless", "Real Life", "Can't feel my face", "As you are")
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, songsQueueArray)
         val songsQueueListView = findViewById<ListView>(R.id.songsQueueListView)
         songsQueueListView.adapter = adapter
+
         registerForContextMenu(songsQueueListView)
         songsQueueListView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->  }
     }
+
     override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
         super.onCreateContextMenu(menu, v, menuInfo)
         val inflater = menuInflater
         inflater.inflate(R.menu.songs_menu, menu)
     }
+
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.add_to_queue -> {
                 val selectedItemOrder = item!!.order
                 val selectedItemTitle = item.title
+
                 val info = item.menuInfo as AdapterContextMenuInfo
                 val listPosition = info.position
                 if(listPosition == 0) {
@@ -144,7 +151,6 @@ class MainActivity : AppCompatActivity() {
                     editor.putString("songname15", songname15)
                     editor.commit()
                 }
-
                 val snackbar = Snackbar.make(this.findViewById(R.id.songsQueueListView), "Navigate To Queue", Snackbar.LENGTH_LONG)
                 snackbar.setAction("Go", View.OnClickListener {
                     startActivity(Intent(this, QueueActivity::class.java))
@@ -155,11 +161,13 @@ class MainActivity : AppCompatActivity() {
             else -> super.onContextItemSelected(item)
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.go_to_songs -> {
